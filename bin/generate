@@ -1,0 +1,3 @@
+#!/bin/bash
+
+protoc --ruby_out=lib --grpc_out=lib --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` helloworld.proto
