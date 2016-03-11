@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(File.expand_path('../lib', File.dirname(__FILE__)))
+
+require 'grpc'
+require 'helloworld_services'
+
+stub = Helloworld::Hello::Stub.new('localhost:50051', :this_channel_is_insecure)
+person = Helloworld::Person.new(name: ARGV[0])
+puts stub.say_hi(person).message
